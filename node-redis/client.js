@@ -1,9 +1,9 @@
 const redis = require('redis');
-const client = redis.createClient();
+const client = redis.createClient({url: process.env.REDIS_HOST});
 
 (async () => {
     // connect to redis
-    await client.connect()
+    await client.connect();
 
     // handle error
     client.on('error', (err) => {
